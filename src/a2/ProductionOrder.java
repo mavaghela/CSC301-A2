@@ -25,6 +25,10 @@ public class ProductionOrder implements Observer, DisplayElement
 
 	public String toString()
 	{
+
+		// String stringOrder = String.format("Production Order# %d,
+		// item %s, Quantity: %d", ID, name);
+
 		return "";
 	}
 }

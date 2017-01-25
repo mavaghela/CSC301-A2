@@ -10,25 +10,37 @@ public class SalesOrder implements Observer, DisplayElement
 
     public SalesOrder(Customer customer, double quantity, Observable inventory)
     {
-      this.customer = customer;
-      this.quantity = quantity;
-      this.inventory = inventory;
+        this.customer = customer;
+        this.quantity = quantity;
+        this.inventory = inventory;
+
+        // if (!ship(this.inventory.availableQuantity)) {
+        //     this.inventory.registerObserver(this);
+        // }
+        // else{
+            display(quantity);
+        // }
+
+        // update(this.inventory.availableQuantity, quantity);
     }
 
     public void update(double availQty, double ordQty)
     {
-      // some code
+        //inventory.availableQuantity = availQty - ordQty;
+
     }
 
     public void display(double displayQuanity)
     {
-      // some code
+
+        //System.out.print(String.format("Shipping Order# %d to %s, Product: %s, Quantity: %d", ID, customer, inventory.product, displayQuanity));
     }
 
     private boolean ship(double availableQuantity)
     {
-        return false;
+        return quantity <= availableQuantity;
     }
+
     public String toString()
     {
         return "";

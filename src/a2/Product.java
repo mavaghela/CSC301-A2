@@ -13,6 +13,6 @@ public class Product
 
     public String toString()
     {
-        return String.format("Product %d has name %s", ID, name);
+        return name;
     }
 }

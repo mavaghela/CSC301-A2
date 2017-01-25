@@ -13,6 +13,7 @@ public class Customer
 
     public String toString()
     {
-        return String.format("Customer %d has name %s", ID, name);
+        return name;
+
     }
 }

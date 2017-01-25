@@ -7,7 +7,7 @@ public class WallpaperFactory {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
+
 		Customer wm = new Customer(100, "Wal-Mart");
 		Customer hd = new Customer(200, "Home Depot");
 		Product flower = new Product(123,"Flower Field");
@@ -28,6 +28,11 @@ public class WallpaperFactory {
 		System.out.println(bathInv);
 		System.out.println(flowerInv);
 
+		// Customer hd = new Customer(200, "Home Depot");
+		// Product shirt = new Product(234,"Shirt");
+		// Inventory shirtInv = new Inventory(shirt);
+		// shirtInv.updatedQuantites(1500, 0);
+		// SalesOrder o1 = new SalesOrder(hd, 1400, shirtInv);
 	}
 
 }
