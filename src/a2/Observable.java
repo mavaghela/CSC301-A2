@@ -1,7 +1,8 @@
 package a2;
 
-public interface Observable {
-	
-	// Your code for the Observable interface goes here
-
+public interface Observable
+{
+	public void registerObserver(Observer o);
+	public void removeObserver(Observer o);
+	public void notifyObserver();
 }

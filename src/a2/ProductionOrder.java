@@ -1,5 +1,30 @@
 package a2;
 
-public class ProductionOrder implements Observer, DisplayElement {
-	// Your code for the ProductionOrder class goes here
+public class ProductionOrder implements Observer, DisplayElement
+{
+	private static int orderSequence;
+    protected int ID;
+	protected double minQuantity;
+	protected Observable inventory;
+
+	public ProductionOrder(int minQty, Observable inventory)
+	{
+		this.minQuantity = minQty;
+		this.inventory = inventory;
+	}
+
+	public void update(double availQty, double ordQty)
+	{
+
+	}
+
+	public void display(double dispQty)
+	{
+
+	}
+
+	public String toString()
+	{
+		return "";
+	}
 }

@@ -1,5 +1,6 @@
 package a2;
 
-public interface Observer {
-    // your code for the Observer interface goes here
+public interface Observer
+{
+    public void update(double availQty, double ordQty);
 }
