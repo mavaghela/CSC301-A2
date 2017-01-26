@@ -32,7 +32,12 @@ public class SalesOrder implements Observer, DisplayElement
 
     public void update(double availQty, double ordQty)
     {
-        //inventory.availableQuantity = availQty - ordQty;
+        Inventory inv = (Inventory) this.inventory;
+        if (ship(availQty)){
+            inv.availableQuantity -= this.quantity;
+            inv.removeObserver(this);
+            display(quantity);
+        }
 
     }
 
