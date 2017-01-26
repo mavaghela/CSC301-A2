@@ -14,16 +14,20 @@ public class SalesOrder implements Observer, DisplayElement
         this.quantity = quantity;
         this.inventory = inventory;
 
+        // Increment orderSequence and set ID
+        orderSequence++;
+        ID = orderSequence;
+
         Inventory inv = (Inventory) this.inventory;
 
         if (!ship(inv.availableQuantity)) {
             this.inventory.registerObserver(this);
+            inv.backorderedQuantity += this.quantity;
         }
         else{
+            inv.availableQuantity -= this.quantity;
             display(quantity);
         }
-
-        update(inv.availableQuantity, quantity);
     }
 
     public void update(double availQty, double ordQty)
@@ -34,7 +38,11 @@ public class SalesOrder implements Observer, DisplayElement
 
     public void display(double displayQuanity)
     {
-        System.out.println(String.format("Shipping Order# %d to %s, Product: %s, Quantity: %4.1f", ID, customer, ((Inventory)inventory).product, displayQuanity));
+        String salesOrderString = String.format(
+        "Shipping Order# %d to %s, Product: %s, Quantity: %4.1f",
+        ID, customer, ((Inventory)inventory).product, displayQuanity);
+
+        System.out.println(salesOrderString);
     }
 
     private boolean ship(double availableQuantity)
