@@ -15,7 +15,7 @@ public class ProductionOrder implements Observer, DisplayElement
 
 	public void update(double availQty, double ordQty)
 	{
-
+		
 	}
 
 	public void display(double dispQty)

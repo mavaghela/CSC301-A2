@@ -2,6 +2,7 @@ package a2;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Iterator;
 
 public class Inventory implements Observable
 {
@@ -28,13 +29,13 @@ public class Inventory implements Observable
 
     public void removeObserver(Observer o)
     {
-        // Iterator<Observer> iter = observers.listIterator();
-        // for ( ; iter.hasNext(); ) {
-        //     Observer obs = iter.next();
-        //     if (obs == o) {
-        //         iter.remove();
-        //     }
-        // }
+        Iterator<Observer> iter = observers.listIterator();
+        for ( ; iter.hasNext(); ) {
+            Observer obs = iter.next();
+            if (obs == o) {
+                iter.remove();
+            }
+        }
     }
 
     public void notifyObserver()
