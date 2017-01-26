@@ -20,6 +20,7 @@ public class Inventory implements Observable
     {
         this.availableQuantity = stock;
         this.backorderedQuantity = backord;
+        notifyObserver();
     }
 
     public void registerObserver(Observer o)
