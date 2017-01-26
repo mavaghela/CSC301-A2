@@ -21,7 +21,7 @@ public class SalesOrder implements Observer, DisplayElement
         Inventory inv = (Inventory) this.inventory;
 
         if (!ship(inv.availableQuantity)) {
-            this.inventory.registerObserver(this);
+            inv.registerObserver(this);
             inv.backorderedQuantity += this.quantity;
         }
         else{
@@ -44,7 +44,7 @@ public class SalesOrder implements Observer, DisplayElement
     public void display(double displayQuanity)
     {
         String salesOrderString = String.format(
-        "Shipping Order# %d to %s, Product: %s, Quantity: %4.1f",
+        "Shipping Order# %d to %s, Product: %s, Quantity: %.1f",
         ID, customer, ((Inventory)inventory).product, displayQuanity);
 
         System.out.println(salesOrderString);

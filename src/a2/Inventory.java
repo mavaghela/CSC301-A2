@@ -14,6 +14,7 @@ public class Inventory implements Observable
     public Inventory(Product product)
     {
         this.product = product;
+        observers = new ArrayList<Observer>();
     }
 
     protected void updatedQuantites(double stock, double backord)
@@ -49,6 +50,10 @@ public class Inventory implements Observable
 
     public String toString()
     {
-        return "";
+        String inventoryString = String.format(
+        "%d %s, Available %.1f, Backorders: %.1f",
+        product.ID, product, availableQuantity, backorderedQuantity);
+
+        return inventoryString;
     }
 }
