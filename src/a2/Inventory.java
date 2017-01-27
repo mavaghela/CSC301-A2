@@ -32,20 +32,24 @@ public class Inventory implements Observable
 
     public void removeObserver(Observer o)
     {
-        Iterator<Observer> iter = observers.listIterator();
-        for ( ; iter.hasNext(); ) {
-            Observer obs = iter.next();
-            if (obs == o) {
-                iter.remove();
-            }
-        }
+        observers.remove(o);
+//        Iterator<Observer> iter = observers.listIterator();
+//        for ( ; iter.hasNext(); ) {
+//            Observer obs = iter.next();
+//            if (obs == o) {
+//                iter.remove();
+//            }
+//        }
     }
 
     public void notifyObserver()
     {
-         for (Observer observer : observers) {
-             observer.update(availableQuantity, backorderedQuantity);
-         }
+
+        Iterator<Observer> iter = observers.iterator();
+        while ( iter.hasNext() ) {
+            Observer obs = iter.next();
+            obs.update(availableQuantity, backorderedQuantity);
+        }
     }
 
     public String toString()

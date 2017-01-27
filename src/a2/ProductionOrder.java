@@ -15,6 +15,8 @@ public class ProductionOrder implements Observer, DisplayElement
 		// Increment orderSequence and set ID
 		orderSequence++;
 		ID = orderSequence;
+		Inventory inv = (Inventory) this.inventory;
+		inv.registerObserver(this);
 	}
 
 	public void update(double availQty, double ordQty)
@@ -29,7 +31,7 @@ public class ProductionOrder implements Observer, DisplayElement
 	public void display(double dispQty)
 	{
 		String prodOrderString = String.format(
-		"Production Order# %d, item %s, Quantity: %d",
+		"Production Order# %d, item %s, Quantity: %.1f",
 		ID, ((Inventory)inventory).product, dispQty);
 
 		System.out.println(prodOrderString);
