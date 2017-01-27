@@ -64,6 +64,6 @@ public class SalesOrder implements Observer, DisplayElement
 
     public String toString()
     {
-        return "";
+        return Integer.toString(ID);
     }
 }

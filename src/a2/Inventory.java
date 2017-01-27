@@ -64,6 +64,14 @@ public class Inventory implements Observable
         "%d %s, Available %.1f, Backorders: %.1f",
         product.ID, product, availableQuantity, backorderedQuantity);
 
+        Iterator<Observer> iter = observers.iterator();
+        while ( iter.hasNext() ) {
+            Observer obs = iter.next();
+            if (obs instanceof ProductionOrder) {
+                inventoryString += "\n" + obs.toString();
+            }
+        }
+
         return inventoryString;
     }
 }
