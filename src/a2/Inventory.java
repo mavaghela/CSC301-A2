@@ -17,7 +17,7 @@ public class Inventory implements Observable
         observers = new ArrayList<Observer>();
     }
 
-    protected void updateQuantites(double stock, double backord)
+    protected void updateQuantities(double stock, double backord)
     {
         this.availableQuantity = stock;
         this.backorderedQuantity = backord;

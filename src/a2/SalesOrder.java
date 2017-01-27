@@ -43,7 +43,7 @@ public class SalesOrder implements Observer, DisplayElement
 
             inv.removeObserver(this);
             display(quantity);
-            inv.updateQuantites(availQty - quantity, ordQty);
+            inv.updateQuantities(availQty - quantity, ordQty);
         }
 
     }
