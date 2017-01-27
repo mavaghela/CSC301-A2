@@ -17,7 +17,7 @@ public class Inventory implements Observable
         observers = new ArrayList<Observer>();
     }
 
-    protected void updatedQuantites(double stock, double backord)
+    protected void updateQuantites(double stock, double backord)
     {
         this.availableQuantity = stock;
         this.backorderedQuantity = backord;
@@ -44,7 +44,6 @@ public class Inventory implements Observable
 
     public void notifyObserver()
     {
-
         Iterator<Observer> iter = observers.iterator();
         while ( iter.hasNext() ) {
             Observer obs = iter.next();
@@ -68,7 +67,7 @@ public class Inventory implements Observable
         while ( iter.hasNext() ) {
             Observer obs = iter.next();
             if (obs instanceof ProductionOrder) {
-                inventoryString += "\n" + obs.toString();
+                inventoryString += "\n" + obs;
             }
         }
 

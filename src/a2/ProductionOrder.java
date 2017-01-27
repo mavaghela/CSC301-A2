@@ -15,7 +15,7 @@ public class ProductionOrder implements Observer, DisplayElement
 		// Increment orderSequence and set ID
 		orderSequence++;
 		ID = orderSequence;
-		
+
 		Inventory inv = (Inventory) this.inventory;
 		inv.registerObserver(this);
 	}
@@ -24,7 +24,7 @@ public class ProductionOrder implements Observer, DisplayElement
 	{
 		if(ordQty >= minQuantity){
 			Inventory inv = (Inventory) this.inventory;
-			inv.updatedQuantites(ordQty, 0);
+			inv.updateQuantites(ordQty, 0);
 			display(ordQty);
 		}
 	}
