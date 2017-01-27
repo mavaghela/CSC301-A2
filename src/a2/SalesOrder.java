@@ -7,12 +7,14 @@ public class SalesOrder implements Observer, DisplayElement
     protected Customer customer;
     protected double quantity;
     protected Observable inventory;
+    protected boolean flag;
 
     public SalesOrder(Customer customer, double quantity, Observable inventory)
     {
         this.customer = customer;
         this.quantity = quantity;
         this.inventory = inventory;
+        this.flag = false;
 
         // Increment orderSequence and set ID
         orderSequence++;
@@ -26,6 +28,7 @@ public class SalesOrder implements Observer, DisplayElement
         }
         else{
             inv.availableQuantity -= this.quantity;
+            this.flag = true;
             display(quantity);
         }
     }
@@ -35,6 +38,7 @@ public class SalesOrder implements Observer, DisplayElement
         Inventory inv = (Inventory) this.inventory;
         if (ship(availQty)){
             inv.availableQuantity -= this.quantity;
+            this.flag = true;
             inv.removeObserver(this);
             display(quantity);
         }
