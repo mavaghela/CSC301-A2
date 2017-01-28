@@ -27,7 +27,6 @@ public class Inventory implements Observable
     public void registerObserver(Observer o)
     {
         observers.add(o);
-        notifyObserver();
     }
 
     public void removeObserver(Observer o)

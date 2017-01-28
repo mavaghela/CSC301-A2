@@ -25,6 +25,7 @@ public class SalesOrder implements Observer, DisplayElement
         if (!ship(inv.availableQuantity)) {
             inv.backorderedQuantity += this.quantity;
             inv.registerObserver(this);
+            inv.notifyObserver();
         }
         else{
             inv.availableQuantity -= this.quantity;
