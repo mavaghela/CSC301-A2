@@ -50,7 +50,7 @@ public class Inventory implements Observable
             if(obs instanceof SalesOrder && !((SalesOrder)obs).flag) {
                 obs.update(availableQuantity, backorderedQuantity);
             }
-            else if (obs instanceof ProductionOrder) {
+            else if (obs instanceof ProductionOrder && backorderedQuantity != 0) {
                 obs.update(availableQuantity, backorderedQuantity);
             }
         }

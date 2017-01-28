@@ -36,7 +36,6 @@ public class SalesOrder implements Observer, DisplayElement
 
     public void update(double availQty, double ordQty)
     {
-        // System.out.println(String.format("in Update availQty is %s", availQty));
         Inventory inv = (Inventory) this.inventory;
         if (ship(availQty)){
             // inv.availableQuantity -= this.quantity;
@@ -44,7 +43,9 @@ public class SalesOrder implements Observer, DisplayElement
 
             inv.removeObserver(this);
             display(quantity);
-            inv.updateQuantities(availQty - quantity, ordQty);
+            inv.availableQuantity = availQty - quantity;
+            inv.backorderedQuantity = ordQty;
+            //inv.updateQuantities(availQty - quantity, ordQty);
         }
 
     }
