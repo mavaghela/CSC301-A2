@@ -29,7 +29,9 @@ public class Inventory implements Observable
         observers.add(o);
     }
 
-    public void removeObserver(Observer o) {}
+    public void removeObserver(Observer o) {
+        ((SalesOrder)o).flag = true;
+    }
 
     public void notifyObserver()
     {
