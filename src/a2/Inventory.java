@@ -29,24 +29,13 @@ public class Inventory implements Observable
         observers.add(o);
     }
 
-    public void removeObserver(Observer o)
-    {
-       // observers.remove(o);
-//        Iterator<Observer> iter = observers.listIterator();
-//        for ( ; iter.hasNext(); ) {
-//            Observer obs = iter.next();
-//            if (obs == o) {
-//                iter.remove();
-//            }
-//        }
-    }
+    public void removeObserver(Observer o) {}
 
     public void notifyObserver()
     {
         Iterator<Observer> iter = observers.iterator();
         while ( iter.hasNext() ) {
             Observer obs = iter.next();
-//            SalesOrder so = (SalesOrder) obs;
             if(obs instanceof SalesOrder && !((SalesOrder)obs).flag) {
                 obs.update(availableQuantity, backorderedQuantity);
             }

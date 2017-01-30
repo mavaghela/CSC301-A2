@@ -28,11 +28,6 @@ public class WallpaperFactory {
 		System.out.println(bathInv);
 		System.out.println(flowerInv);
 
-		// Customer hd = new Customer(200, "Home Depot");
-		// Product shirt = new Product(234,"Shirt");
-		// Inventory shirtInv = new Inventory(shirt);
-		// shirtInv.updatedQuantites(1500, 0);
-		// SalesOrder o1 = new SalesOrder(hd, 1400.0, shirtInv);
 	}
 
 }
